@@ -1,0 +1,30 @@
+﻿@page "/"
+
+<p>Hola,@UtilidadesString.Enmayuscular(nombre)</p> 
+<button @onclick="@ManejarClick"> Presioname</button>
+<div>
+    <h3>Pelicula</h3>
+    <p>Titulo: <b>@SpiderMan.Titulo</b></p>
+    <p>Fecha Lanzamiento: <b>@SpiderMan.Lanzamiento.ToString("dd MMM yyyy")</b></p>
+
+</div>
+
+@code{
+    string nombre = "gaston";
+
+    public Pelicula SpiderMan { get { return ObtenerPelicula(); } }
+
+    private Pelicula ObtenerPelicula()
+    {
+        return new Pelicula()
+        {
+            Titulo = "Spider-Man : From Home",
+            Lanzamiento = new DateTime(2019, 7, 2)
+        };
+    }
+
+    private void ManejarClick()
+    {
+        Console.WriteLine("MeHanClickeado");
+    }
+}
